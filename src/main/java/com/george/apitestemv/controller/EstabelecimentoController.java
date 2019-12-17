@@ -19,11 +19,13 @@ public class EstabelecimentoController {
     }
 
     @GetMapping
+    @CrossOrigin(origins = "http://localhost:4200")
     public List<Estabelecimento> findAll() {
         return repository.findAll();
     }
 
     @GetMapping(path = {"/{id}"})
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<Estabelecimento> findById(@PathVariable Long id) {
         return repository.findById(id)
                 .map(record -> ResponseEntity.ok().body(record))

@@ -19,11 +19,13 @@ public class ProfissionalController {
     }
 
     @GetMapping
+    @CrossOrigin(origins = "http://localhost:4200")
     public List<Profissional> findAll() {
         return repository.findAll();
     }
 
     @GetMapping(path = {"/{id}"})
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<Profissional> findById(@PathVariable Long id) {
         return repository.findById(id)
                 .map(record -> ResponseEntity.ok().body(record))
